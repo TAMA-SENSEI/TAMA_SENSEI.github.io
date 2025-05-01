@@ -1,11 +1,46 @@
 <html>
-  <head>
-    <title>Kanji Defence</title>
+	<head>
+      <style>
+      		body{
+        		background-color: #333344;
+        		color: white;
+        	}
+        	h1{
+        		text-align: center;
+        	}
+        	canvas{
+        		height:100%;
+        		width:100%;
+        		position: absolute;
+        		left: 0%;
+        		top: 0%;
+        		background-color:white;
+        	}
+      </style>
   </head>
   <body>
-    <h1>This is a Test</h1>
+  	<canvas id="main"></canvas>
     <script>
-      
-    </script>
-  </body>
+  		let main = document.getElementById("main");
+   		let ctx = main.getContext("2d");
+        let px = 0;
+        let py = 0;
+        document.addEventListener('keydown', function(event) {
+    		if(event.code == "ArrowLeft") {
+        		px--;
+    		}
+            if(event.code == "ArrowDown"){
+            	py++;
+            }
+    		else if(event.code == "ArrowRight") {
+        		px++;
+    		}
+            if(event.code == "ArrowUp"){
+            	py--;
+            }
+            ctx.clearRect(0, 0, main.width, main.height);
+            ctx.font = "30px Arial";
+			ctx.strokeText("@", px, py+30);
+		});
+  	</script>
 </html>
